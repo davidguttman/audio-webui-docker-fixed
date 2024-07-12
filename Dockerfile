@@ -1,6 +1,6 @@
 
 # Use the official image as a parent image
-FROM nvidia/cuda:11.8.0-devel-ubuntu22.04
+FROM nvidia/cuda:12.5.0-devel-ubuntu22.04
 
 # Set the working directory in the container
 WORKDIR /app
