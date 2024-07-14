@@ -1,6 +1,6 @@
 
 # Use the official image as a parent image
-FROM nvidia/cuda:12.5.0-devel-ubuntu22.04
+FROM nvidia/cuda:11.8.0-devel-ubuntu22.04
 
 # Set the working directory in the container
 WORKDIR /app
@@ -24,13 +24,10 @@ RUN --mount=type=cache,target=/root/.cache/pip pip3 install --upgrade setuptools
 # Install setuptools and wheel
 RUN --mount=type=cache,target=/root/.cache/pip pip3 install setuptools wheel
 
-RUN wget https://github.com/gitmylo/audio-webui/releases/download/Installers/audio-webui.zip
-RUN unzip audio-webui.zip
+RUN wget https://github.com/davidguttman/audio-webui.git
 RUN --mount=type=cache,target=/root/.cache/pip bash /app/install_linux_macos.sh
 WORKDIR /app/audio-webui
 COPY ./.env /app
-# COPY ./install.sh /app
-COPY ./run.sh /app
-RUN chmod 777 ./run.sh
+
 # RUN --mount=type=cache,target=/root/.cache/pip bash /app/install.sh 
 # RUN --mount=type=cache,target=/root/.cache/pip pip3 install tensorboardX
