@@ -8,7 +8,7 @@ services:
       - ./HF_HOME:/app/HF_HOME
       - ./.container-cache:/root/.cache
       - ./venv:/app/audio-webui/venv
-    command: "/app/run.sh"
+    command: "/app/audio-webui/run.sh"
     environment:
       - NVIDIA_VISIBLE_DEVICES=all
     env_file:
