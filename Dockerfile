@@ -25,7 +25,6 @@ RUN --mount=type=cache,target=/root/.cache/pip pip3 install --upgrade setuptools
 RUN --mount=type=cache,target=/root/.cache/pip pip3 install setuptools wheel
 
 RUN git clone https://github.com/davidguttman/audio-webui.git
-RUN --mount=type=cache,target=/root/.cache/pip bash /app/install_linux_macos.sh
 WORKDIR /app/audio-webui
 COPY ./.env /app
 
